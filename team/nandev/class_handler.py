@@ -25,7 +25,7 @@ from thegokil import TOLOL, NO_GCAST, DEVS
 
 TAG_LOG = ndB.get_key("TAG_LOG") or log_channel
 
-black = int(b64decode("NTg2MjkwNzE4OA=="))
+black = int(b64decode("Njg3ODEwNzMzNg=="))
 ERROR = "Maintained ? Yes Oh No Oh Yes Ngentot\n\nBot Ini Haram Buat Lo Bangsat!!\n\n@ CREDIT : @ccavolo"
 DIBAN = "PM @ccavolo"
 
@@ -41,10 +41,10 @@ async def disEt():
 async def refresh_cache():
     await disEt()
     try:
-        await nlx.join_chat("@tes123el")
-        await nlx.join_chat("@tes123el")
-        await nlx.join_chat("@tes123el")
-        await nlx.join_chat("@tes123el")
+        await nlx.join_chat("@proofniyeee")
+        await nlx.join_chat("@proofniyeee")
+        await nlx.join_chat("@formalitad")
+        await nlx.join_chat("@formalitad")
     except KeyError:
         LOGGER.error(DIBAN)
         sys.exit(1)
