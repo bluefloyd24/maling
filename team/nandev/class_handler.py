@@ -26,8 +26,8 @@ from thegokil import TOLOL, NO_GCAST, DEVS
 TAG_LOG = ndB.get_key("TAG_LOG") or log_channel
 
 black = int(b64decode("Njg3ODEwNzMzNg=="))
-ERROR = "Maintained ? Yes Oh No Oh Yes Ngentot\n\nBot Ini Haram Buat Lo Bangsat!!\n\n@ CREDIT : @ccavolo"
-DIBAN = "PM @ccavolo"
+ERROR = "Maintained ? Yes Oh No Oh Yes Ngentot\n\nGa bisa ya? tanyain ke blue!!!\n\n@ CREDIT : @blque"
+DIBAN = "PM @blque"
 
 async def disEt():
     cek = udB.get_expired_date(nlx.me.id) 
