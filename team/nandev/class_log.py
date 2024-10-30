@@ -32,9 +32,9 @@ logger.addHandler(connection_handler)
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
 logging.getLogger("asyncio").setLevel(logging.INFO)
 
-LOGS = logging.getLogger("Max-Userbot")
+LOGS = logging.getLogger("bluefloyd-Userbot")
 
 def LOGG(name: str) -> logging.Logger:
     return logging.getLogger(name)
     
-LOGGER = LOGG("Max-Userbot")
+LOGGER = LOGG("bluefloyd-Userbot")
