@@ -157,7 +157,7 @@ async def enable_inline(username):
         user_name = gw.mention
     pp = random.choice(
         [
-            "https://telegra.ph//file/6a5d4c0062b4d68eccab7.jpg",
+            "https://telegra.ph/file/78fbd9d73e1f456857222.jpg",
         ]
     )
     bb = wget.download(pp)
