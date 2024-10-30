@@ -44,7 +44,7 @@ async def autobot():
     if gw.username:
         username = gw.username + "_bot"
     else:
-        username = "blue_" + (str(gw.id))[5:] + "_bot"
+        username = "blue" + (str(gw.id))[5:] + "bot"
     bf = "@BotFather"
 
     await nlx.send_message(bf, "/start")
@@ -173,7 +173,7 @@ async def enable_inline(username):
     await asyncio.sleep(2)
     await nlx.send_message(bf, f"@{username}")
     await asyncio.sleep(2)
-    await nlx.send_message(bf, f"𝐁𝘭𝘶𝘦𝘧𝘭𝘰𝘺𝘥-Userbot Asisten My Owner : @{user_name}")
+    await nlx.send_message(bf, f"𝐁𝘭𝘶𝘦𝘧𝘭𝘰𝘺𝘥-Userbot v2 belongs to @{user_name}")
     await asyncio.sleep(2)
     await nlx.send_message(bf, "/setdescription")
     await asyncio.sleep(2)
@@ -181,7 +181,7 @@ async def enable_inline(username):
     await asyncio.sleep(2)
     await nlx.send_message(
         bf,
-        f"Powerful 𝐁𝘭𝘶𝘦𝘧𝘭𝘰𝘺𝘥-Userbot Assistant\nMy Owner : @{user_name}\n\nPowered By ~ @blque",
+        f"Powerful 𝐁𝘭𝘶𝘦𝘧𝘭𝘰𝘺𝘥-Userbot v2 Assistant\nFor @{user_name}\n\nPowered By ~ @blque",
     )
     await asyncio.sleep(2)
     await nlx.send_message(bf, "/setinline")
