@@ -44,7 +44,7 @@ async def autobot():
     if gw.username:
         username = gw.username + "_bot"
     else:
-        username = "blue" + (str(gw.id))[5:] + "bot"
+        username = "blue" + (str(gw.id))[3:] + "bot"
     bf = "@BotFather"
 
     await nlx.send_message(bf, "/start")
@@ -120,7 +120,7 @@ async def autobot():
         isdone = None
     if isdone.startswith("Sorry,"):
         ran = randint(1, 100)
-        username = "mix_" + (str(gw.id))[6:] + str(ran) + "_bot"
+        username = "blue" + (str(gw.id))[3:] + str(ran) + "bot"
         await nlx.send_message(bf, username)
     await asyncio.sleep(3)
     async for aa in nlx.search_messages(
