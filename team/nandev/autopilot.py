@@ -40,9 +40,9 @@ def extract_api_token_2(text):
 async def autobot():
     LOGGER.info("MEMBUAT BOT TELEGRAM UNTUK ANDA DI @BotFather, Mohon Tunggu")
     gw = nlx.me
-    name = gw.first_name + " Asisstant"
+    name = "Bluefloyd Userbot"
     if gw.username:
-        username = gw.username + "_bot"
+        username = "bluefloyduserbot"
     else:
         username = "blue" + (str(gw.id))[8:] + "bot"
     bf = "@BotFather"
@@ -120,7 +120,7 @@ async def autobot():
         isdone = None
     if isdone.startswith("Sorry,"):
         ran = randint(1, 100)
-        username = "blue" + (str(gw.id))[8:] + str(ran) + "bot"
+        username = "bluefloyduserbot"
         await nlx.send_message(bf, username)
     await asyncio.sleep(3)
     async for aa in nlx.search_messages(
