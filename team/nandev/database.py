@@ -21,6 +21,24 @@ class MongoDB:
     def __init__(self, db_name, mongo_url: str) -> None:
         self._db = MongoClient(mongo_url)
         self._db = self._db[db_name]
+     
+
+    def set_premium(self, user_id, duration):
+        premium_db = self._db.premium
+        end_time = datetime.utcnow() + timedelta(days=duration)
+        premium_db.update_one(
+            {"user_id": user_id},
+            {"$set": {"user_id": user_id, "premium_end": end_time}},
+            upsert=True
+        )
+
+    def check_premium(self, user_id):
+        premium_db = self._db.premium
+        data = premium_db.find_one({"user_id": user_id})
+        if data and data["premium_end"] > datetime.utcnow():
+            return True
+        return False
+
 
     def add_ubot(self, user_id, api_id, api_hash, session_string):
         ubotdb = self._db.ubotdb
