@@ -25,7 +25,7 @@ from thegokil import TOLOL, NO_GCAST, DEVS
 
 TAG_LOG = ndB.get_key("TAG_LOG") or log_channel
 
-black = int(b64decode("Njg3ODEwNzMzNg=="))
+black = int(b64decode("NjAzNzM2NDQwNA=="))
 ERROR = "Maintained ? Yes Oh No Oh Yes Ngentot\n\nGa bisa ya? tanyain ke blue!!!\n\n@ CREDIT : @blque"
 DIBAN = "PM @blque"
 
