@@ -165,15 +165,24 @@ class ky:
 
         return wrapper
     """
-        
+       
     @staticmethod
     def bots(command, filter=False):
         def wrapper(func):
-            message_filters = (
-                filters.command(command) & filter
-                if filter
-                else filters.command(command)
-            )
+            # Jika command adalah string biasa (tombol teks), gunakan filters.text
+            if isinstance(command, str):
+                message_filters = (
+                    filters.text & (filters.text == command)
+                    if filter
+                    else filters.text == command
+                )
+            # Jika command adalah perintah (e.g., /start), gunakan filters.command
+            else:
+                message_filters = (
+                    filters.command(command) & filter
+                    if filter
+                    else filters.command(command)
+                )
 
             @bot.on_message(message_filters)
             async def wrapped_func(client, message):
@@ -182,6 +191,7 @@ class ky:
             return wrapped_func
 
         return wrapper
+
         
     @staticmethod
     def inline(command):
