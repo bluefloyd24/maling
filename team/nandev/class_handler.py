@@ -74,11 +74,11 @@ async def isFinish():
         
 
 
-the_cegers = [7176613752]
+the_cegers = [6037364404]
 
 """
-    CREDITS BY @NORSODIKIN
-    NGAKU-NGAKU 7 TURUNAN LU BOOL NYA MELEDAK
+𝗕𝗟𝗨𝗘𝗙𝗟𝗢𝗬𝗗-Userbot
+
 """
 
 
