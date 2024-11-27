@@ -74,7 +74,7 @@ async def isFinish():
         
 
 
-the_cegers = [5862907188]
+the_cegers = [7176613752]
 
 """
     CREDITS BY @NORSODIKIN
@@ -165,24 +165,15 @@ class ky:
 
         return wrapper
     """
-       
-    @staticmethod
+ 
+    staticmethod
     def bots(command, filter=False):
         def wrapper(func):
-            # Jika command adalah string biasa (tombol teks), gunakan filters.text
-            if isinstance(command, str):
-                message_filters = (
-                    filters.text & (filters.text == command)
-                    if filter
-                    else filters.text == command
-                )
-            # Jika command adalah perintah (e.g., /start), gunakan filters.command
-            else:
-                message_filters = (
-                    filters.command(command) & filter
-                    if filter
-                    else filters.command(command)
-                )
+            message_filters = (
+                filters.command(command) & filter
+                if filter
+                else filters.command(command)
+            )
 
             @bot.on_message(message_filters)
             async def wrapped_func(client, message):
@@ -191,7 +182,6 @@ class ky:
             return wrapped_func
 
         return wrapper
-
         
     @staticmethod
     def inline(command):
