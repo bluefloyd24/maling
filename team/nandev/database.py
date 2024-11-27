@@ -36,8 +36,10 @@ class MongoDB:
         premium_db = self._db.premium
         data = premium_db.find_one({"user_id": user_id})
         if data and data["premium_end"] > datetime.utcnow():
-            return True
-        return False
+            remaining_time = (data["premium_end"] - datetime.utcnow()).days
+            return {"is_premium": True, "remaining_days": remaining_time}
+        return {"is_premium": False, "remaining_days": 0}
+
 
 
     def add_ubot(self, user_id, api_id, api_hash, session_string):
