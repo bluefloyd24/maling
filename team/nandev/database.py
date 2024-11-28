@@ -4,6 +4,7 @@ from pymongo import MongoClient
 import ast
 from config import db_name, mongo_uri
 from .class_log import LOGGER
+from datetime import datetime, timedelta
 
 
 ################################################################
@@ -21,8 +22,8 @@ class MongoDB:
     def __init__(self, db_name, mongo_url: str) -> None:
         self._db = MongoClient(mongo_url)
         self._db = self._db[db_name]
-     
 
+    # Menyimpan dan memperbarui status premium untuk user
     def set_premium(self, user_id, duration):
         premium_db = self._db.premium
         end_time = datetime.utcnow() + timedelta(days=duration)
@@ -32,6 +33,7 @@ class MongoDB:
             upsert=True
         )
 
+    # Mengecek apakah user memiliki status premium yang aktif
     def check_premium(self, user_id):
         premium_db = self._db.premium
         data = premium_db.find_one({"user_id": user_id})
@@ -40,11 +42,9 @@ class MongoDB:
             return {"is_premium": True, "remaining_days": remaining_time}
         return {"is_premium": False, "remaining_days": 0}
 
-
-
+    # Menambahkan data userbot ke database
     def add_ubot(self, user_id, api_id, api_hash, session_string):
         ubotdb = self._db.ubotdb
-
         ubotdb.update_one(
             {"user_id": user_id},
             {
@@ -57,11 +57,12 @@ class MongoDB:
             upsert=True,
         )
 
+    # Menghapus data userbot dari database
     def remove_ubot(self, user_id):
         ubotdb = self._db.ubotdb
-
         ubotdb.delete_one({"user_id": user_id})
 
+    # Mendapatkan semua userbot yang ada di database
     def get_userbots(self):
         ubotdb = self._db.ubotdb
         data = ubotdb.find({"user_id": {"$exists": 1}}, {"_id": 0})
@@ -74,6 +75,36 @@ class MongoDB:
             }
             for ubot in data
         ]
+
+    # Mengecek apakah user sudah memiliki userbot yang terpasang
+    def has_userbot(self, user_id):
+        ubotdb = self._db.ubotdb
+        data = ubotdb.find_one({"user_id": user_id})
+        return data is not None
+
+    # Memeriksa apakah session string valid untuk userbot tertentu
+    def is_session_valid(self, session_string):
+        try:
+            # Menggunakan Pyrogram untuk memverifikasi session
+            from pyrogram import Client
+            client = Client(session_string=session_string)
+            client.start()
+            client.stop()
+            return True
+        except Exception as e:
+            return False
+
+    # Mengambil session string untuk userbot
+    def get_userbot_session(self, user_id):
+        ubotdb = self._db.ubotdb
+        data = ubotdb.find_one({"user_id": user_id})
+        if data:
+            return data["session_string"]
+        return None
+
+    # Menghapus data userbot dari database
+    def remove_userbot_data(self, user_id):
+        self.remove_ubot(user_id)
 
     def rem_two_factor(self, user_id):
         self._db.twofactor.update_one(
