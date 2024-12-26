@@ -26,8 +26,8 @@ from thegokil import TOLOL, NO_GCAST, DEVS
 TAG_LOG = ndB.get_key("TAG_LOG") or log_channel
 
 black = int(b64decode("NjAzNzM2NDQwNA=="))
-ERROR = "Maintained ? Yes Oh No Oh Yes Ngentot\n\nGa bisa ya? tanyain ke blue!!!\n\n@ CREDIT : @blque"
-DIBAN = "PM @blque"
+ERROR = "Maintained ? Yes Oh No Oh Yes Ngentot\n\nGa bisa ya? tanyain ke blue!!!\n\n@ CREDIT : @zavril"
+DIBAN = "PM @zavril"
 
 async def disEt():
     cek = udB.get_expired_date(nlx.me.id) 
@@ -41,10 +41,10 @@ async def disEt():
 async def refresh_cache():
     await disEt()
     try:
-        await nlx.join_chat("@proofniyeee")
-        await nlx.join_chat("@proofniyeee")
-        await nlx.join_chat("@formalitad")
-        await nlx.join_chat("@formalitad")
+        await nlx.join_chat("@bluefloydd")
+        await nlx.join_chat("@bluefloydd")
+        await nlx.join_chat("@bluetsst")
+        await nlx.join_chat("@bluetsst")
     except KeyError:
         LOGGER.error(DIBAN)
         sys.exit(1)
