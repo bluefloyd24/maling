@@ -57,6 +57,11 @@ class Emojik:
                 udB.get_var(nlx.me.id, "emo_block") or "5240241223632954241"
             )
             self.emo_blocke = int(self.block_var)
+            # dana
+            self.dana_var = (
+                udB.get_var(nlx.me.id, "emo_dana") or "5021905410089550576"
+            )
+            self.emo_danae = int(self.dana_var)
 
         elif self.uprem == False:
             self.ping_var = udB.get_var(nlx.me.id, "emo_ping") or "🏓"
@@ -85,6 +90,9 @@ class Emojik:
             # block
             self.block_var = udB.get_var(nlx.me.id, "emo_block") or "🚫"
             self.emo_block = self.block_var
+            # sukses
+            self.dana_var = udB.get_var(nlx.me.id, "emo_dana") or "✅"
+            self.emo_dana = self.dana_var
 
     @property
     def ping(self):
@@ -148,6 +156,13 @@ class Emojik:
             return f"<emoji id={self.emo_blocke}>🚫</emoji>"
         elif self.uprem == False:
             return f"{self.emo_block}"
+
+    @property
+    def dana(self):
+        if self.uprem == True:
+            return f"<emoji id={self.emo_danae}>✅</emoji>"
+        elif self.uprem == False:
+            return f"{self.emo_dana}"
 
 
 """
